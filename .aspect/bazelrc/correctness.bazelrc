@@ -60,3 +60,11 @@ query --experimental_allow_tags_propagation
 # https://github.com/bazelbuild/bazel/issues/10076.
 # Docs: https://bazel.build/reference/command-line-reference#flag--incompatible_default_to_explicit_init_py
 build --incompatible_default_to_explicit_init_py
+
+# Isolate /tmp directories between sandboxes where supported.
+#
+# Avoids bugs like:
+# * https://github.com/bazelbuild/bazel/issues/3236#issuecomment-587752609
+# * https://github.com/raphw/byte-buddy/issues/1111#issuecomment-922459025
+# Docs: https://bazel.build/reference/command-line-reference#flag--sandbox_tmpfs_path
+build --sandbox_tmpfs_path=/tmp
